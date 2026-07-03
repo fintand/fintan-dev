@@ -74,14 +74,15 @@ then it's fixed.
 Pre-cutover checklist:
 - [x] Home/about with real copy — drafted in `COPY.md` (2026-07-03)
 - [x] Selected work write-ups chosen and drafted — design system + Core Web Vitals
-- [ ] Contact links live (github/email/cv — decided in `COPY.md`)
-- [ ] `/cv` page rendering `content/cv.md` (added to v1 scope 2026-07-03; phone number stripped from web copy)
-- [ ] OG/meta tags + favicon
-- [ ] Deployed on Vercel preview URL
+- [x] Contact links live (github/email/cv)
+- [x] `/cv` page rendering `content/cv.md` (phone number stripped from web copy; verified absent in deployed HTML)
+- [x] Meta tags + favicon (dedicated OG image still open — low priority)
+- [x] Deployed on Vercel — live at https://fintan-dev.vercel.app (project `fintan-dev`, both pages statically prerendered)
 - [ ] Confirm DNS/domain control for fintan.dev (check email/MX isn't tangled with it)
+- [ ] DNS cutover: point fintan.dev at the Vercel project
 
 ## Open items
 
 - Confirm the 2026-07-17 cutover date.
-- Review/tune the draft copy in `COPY.md` once it renders in the browser.
-- Scaffold the TanStack Start + Tailwind v4 app.
+- Review/tune the copy on https://fintan-dev.vercel.app — hero's bike/F1 clause is the first candidate to cut (fallback in `COPY.md`).
+- Optional: dedicated OG image; connect a GitHub repo to the Vercel project for push-to-deploy (currently CLI deploys only).
