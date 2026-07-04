@@ -66,6 +66,33 @@ no reason to publish it to scrapers).
 
 ---
 
+## Now (`/now`)
+
+*Drafted from the 2026-07-04 interview. The Sport numbers are not copy — they render
+from `content/strava.json`, updated daily by the strava-sync Action.*
+
+> **Now**
+> What I'm up to at the moment.
+>
+> **Work** — Mostly design-system work at Shutterstock — evolving the component
+> library product teams build on.
+>
+> **Building** — This site. Rebuilt with TanStack Start — deliberately more framework
+> than a static page needs, as a learning exercise — including the daily pipeline
+> that feeds the numbers below.
+>
+> **Sport** — Getting back to cycling regularly. This year so far:
+> *{ytd ride} km ridden · {ytd run} km run — as of {date}, via Strava*
+> (Pre-first-sync fallback: "Numbers arrive with the first Strava sync.")
+>
+> **Otherwise** — Formula 1, raising two kids, and reading in the time left over.
+
+Interview decisions: work line names design systems, not a specific project; no
+training goal implied (nothing to go stale); no book titles (same reason); linked
+from the home footer as `now`.
+
+---
+
 ## Meta
 
 - `<title>`: `Fintan Dunleavy — Software Engineer, Dublin`

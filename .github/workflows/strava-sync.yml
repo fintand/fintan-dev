@@ -1,0 +1,45 @@
+# Daily Strava sync: fetches YTD ride/run totals into content/strava.json and
+# commits the change — the push triggers the Vercel rebuild, so the numbers are
+# baked into the prerendered /now page. Builds themselves never call Strava.
+#
+# One-time setup (repo Settings → Secrets and variables → Actions):
+#   STRAVA_CLIENT_ID / STRAVA_CLIENT_SECRET — from https://www.strava.com/settings/api
+#   STRAVA_REFRESH_TOKEN — from the one-time OAuth dance with scope activity:read_all
+name: Sync Strava stats
+
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch Strava stats
+        run: node scripts/fetch-strava.mjs
+        env:
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet content/strava.json; then
+            echo "No change — skipping commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/strava.json
+          git commit -m "Update Strava stats ($(date -u +%F))"
+          git push

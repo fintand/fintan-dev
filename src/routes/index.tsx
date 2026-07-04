@@ -85,6 +85,9 @@ function Home() {
         <Link to="/cv" className={linkStyle}>
           cv
         </Link>
+        <Link to="/now" className={linkStyle}>
+          now
+        </Link>
       </footer>
     </main>
   )
