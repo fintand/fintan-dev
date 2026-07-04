@@ -14,10 +14,25 @@ if (!STRAVA_CLIENT_ID || !STRAVA_CLIENT_SECRET || !STRAVA_REFRESH_TOKEN) {
 }
 
 async function json(res, label) {
+  const body = await res.text()
+
   if (!res.ok) {
-    throw new Error(`${label} failed: ${res.status} ${await res.text()}`)
+    if (
+      res.status === 403 &&
+      body.includes('"resource":"Application"') &&
+      body.includes('"field":"Status"') &&
+      body.includes('"code":"Inactive"')
+    ) {
+      console.log(
+        '::warning::Strava API application is inactive; leaving content/strava.json unchanged.',
+      )
+      process.exit(0)
+    }
+
+    throw new Error(`${label} failed: ${res.status} ${body}`)
   }
-  return res.json()
+
+  return JSON.parse(body)
 }
 
 const token = await json(
