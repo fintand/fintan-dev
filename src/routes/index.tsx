@@ -1,6 +1,14 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
+import { seo } from '../seo'
 
 export const Route = createFileRoute('/')({
+  head: () =>
+    seo({
+      title: 'Fintan Dunleavy — Software Engineer, Dublin',
+      description:
+        'Senior Software Engineer at Shutterstock. Design systems, Core Web Vitals, and accessible UI at scale.',
+      path: '/',
+    }),
   component: Home,
 })
 

@@ -35,11 +35,34 @@ function RootComponent() {
   )
 }
 
+const personJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Fintan Dunleavy',
+  jobTitle: 'Senior Software Engineer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Shutterstock',
+    url: 'https://www.shutterstock.com',
+  },
+  url: 'https://fintan.dev',
+  sameAs: ['https://github.com/fintand'],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dublin',
+    addressCountry: 'IE',
+  },
+})
+
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: personJsonLd }}
+        />
       </head>
       <body className="bg-white text-neutral-800 antialiased dark:bg-neutral-950 dark:text-neutral-300">
         {children}

@@ -1,20 +1,18 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { marked } from 'marked'
 import cvMarkdown from '../../content/cv.md?raw'
+import { seo } from '../seo'
 
 const cvHtml = marked.parse(cvMarkdown, { async: false })
 
 export const Route = createFileRoute('/cv')({
-  head: () => ({
-    meta: [
-      { title: 'CV — Fintan Dunleavy' },
-      {
-        name: 'description',
-        content:
-          'CV of Fintan Dunleavy, Senior Software Engineer at Shutterstock, Dublin.',
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: 'CV — Fintan Dunleavy',
+      description:
+        'CV of Fintan Dunleavy, Senior Software Engineer at Shutterstock, Dublin.',
+      path: '/cv',
+    }),
   component: CvPage,
 })
 
