@@ -1,19 +1,19 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
-import stravaJson from '../../content/strava.json'
+import activityJson from '../../content/activity.json'
 import { seo } from '../seo'
 
-// Written by the daily strava-sync GitHub Action; null until the first run.
-type StravaStats = {
+// Written by the daily intervals-sync GitHub Action; null until the first run.
+type ActivityStats = {
   ytdRideKm: number | null
   ytdRunKm: number | null
   asOf: string | null
 }
 
-const strava = stravaJson as StravaStats
+const activity = activityJson as ActivityStats
 
 const km = (n: number) => `${n.toLocaleString('en-IE')} km`
-const asOfDate = strava.asOf
-  ? new Date(strava.asOf).toLocaleDateString('en-IE', {
+const asOfDate = activity.asOf
+  ? new Date(activity.asOf).toLocaleDateString('en-IE', {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
@@ -26,7 +26,7 @@ export const Route = createFileRoute('/now')({
     seo({
       title: 'Now — Fintan Dunleavy',
       description:
-        'What Fintan is doing now — work, side projects, and this year’s riding and running, updated daily from Strava.',
+        'What Fintan is doing now — work, side projects, and this year’s riding and running, updated daily from Intervals.icu.',
       path: '/now',
     }),
   component: NowPage,
@@ -73,17 +73,17 @@ function NowPage() {
       <section className="mt-10">
         <h2 className={headingStyle}>Sport</h2>
         <p className="mt-2">Getting back to cycling regularly. This year so far:</p>
-        {strava.ytdRideKm !== null && strava.ytdRunKm !== null ? (
+        {activity.ytdRideKm !== null && activity.ytdRunKm !== null ? (
           <p className="mt-2">
-            {km(strava.ytdRideKm)} ridden · {km(strava.ytdRunKm)} run
+            {km(activity.ytdRideKm)} ridden · {km(activity.ytdRunKm)} run
             <span className="text-neutral-500 dark:text-neutral-400">
               {' '}
-              — as of {asOfDate}, via Strava
+              — as of {asOfDate}, via Intervals.icu
             </span>
           </p>
         ) : (
           <p className="mt-2 text-neutral-500 dark:text-neutral-400">
-            Numbers arrive with the first Strava sync.
+            Numbers arrive with the first Intervals.icu sync.
           </p>
         )}
       </section>

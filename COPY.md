@@ -69,7 +69,7 @@ no reason to publish it to scrapers).
 ## Now (`/now`)
 
 *Drafted from the 2026-07-04 interview. The Sport numbers are not copy — they render
-from `content/strava.json`, updated daily by the strava-sync Action.*
+from `content/activity.json`, updated daily by the intervals-sync Action.*
 
 > **Now**
 > What I'm up to at the moment.
@@ -82,8 +82,8 @@ from `content/strava.json`, updated daily by the strava-sync Action.*
 > that feeds the numbers below.
 >
 > **Sport** — Getting back to cycling regularly. This year so far:
-> *{ytd ride} km ridden · {ytd run} km run — as of {date}, via Strava*
-> (Pre-first-sync fallback: "Numbers arrive with the first Strava sync.")
+> *{ytd ride} km ridden · {ytd run} km run — as of {date}, via Intervals.icu*
+> (Pre-first-sync fallback: "Numbers arrive with the first Intervals.icu sync.")
 >
 > **Otherwise** — Formula 1, raising two kids, and reading in the time left over.
 
