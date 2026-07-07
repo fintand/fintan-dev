@@ -82,7 +82,7 @@ from `content/activity.json`, updated daily by the intervals-sync Action.*
 > that feeds the numbers below.
 >
 > **Sport** — Getting back to cycling regularly. This year so far:
-> *{ytd ride} km ridden · {ytd run} km run — as of {date}, via Intervals.icu*
+> *{ytd ride} km ridden · {ytd run} km run — as of {date}*
 > (Pre-first-sync fallback: "Numbers arrive with the first Intervals.icu sync.")
 >
 > **Otherwise** — Formula 1, raising two kids, and reading in the time left over.

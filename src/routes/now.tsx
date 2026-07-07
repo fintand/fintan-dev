@@ -78,7 +78,7 @@ function NowPage() {
             {km(activity.ytdRideKm)} ridden · {km(activity.ytdRunKm)} run
             <span className="text-neutral-500 dark:text-neutral-400">
               {' '}
-              — as of {asOfDate}, via Intervals.icu
+              — as of {asOfDate}
             </span>
           </p>
         ) : (
