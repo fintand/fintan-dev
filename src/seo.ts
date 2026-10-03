@@ -1,4 +1,4 @@
-const SITE_URL = 'https://fintan.dev'
+const SITE_URL = 'https://www.fintan.dev'
 
 export function seo({
   title,

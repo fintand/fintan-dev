@@ -45,7 +45,7 @@ const personJsonLd = JSON.stringify({
     name: 'Shutterstock',
     url: 'https://www.shutterstock.com',
   },
-  url: 'https://fintan.dev',
+  url: 'https://www.fintan.dev',
   sameAs: ['https://github.com/fintand'],
   address: {
     '@type': 'PostalAddress',

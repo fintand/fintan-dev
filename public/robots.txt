@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fintan.dev/sitemap.xml
+Sitemap: https://www.fintan.dev/sitemap.xml
