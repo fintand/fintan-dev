@@ -3,12 +3,21 @@
 @plugin '@tailwindcss/typography';
 @import './sites-example.css';
 
-::selection {
-  background-color: var(--color-neutral-200);
+:root {
+  color-scheme: light dark;
+
+  --selection-bg: var(--color-neutral-200);
+
+  /* Fallback for browsers without light-dark() */
+  @media (prefers-color-scheme: dark) {
+    --selection-bg: var(--color-neutral-700);
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --selection-bg: light-dark(var(--color-neutral-200), var(--color-neutral-700));
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background-color: var(--color-neutral-700);
-  }
+::selection {
+  background-color: var(--selection-bg);
 }

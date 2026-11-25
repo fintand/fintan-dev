@@ -1,4 +1,4 @@
-.launchpad-shell { --ink:#171715; --paper:#f1efe8; --line:#cbc8bd; min-height:100vh; background:var(--paper); color:var(--ink); display:grid; grid-template-columns:220px 1fr; font-family:'Manrope',sans-serif; }
+.launchpad-shell { color-scheme:light; --ink:#171715; --paper:#f1efe8; --line:#cbc8bd; min-height:100vh; background:var(--paper); color:var(--ink); display:grid; grid-template-columns:220px 1fr; font-family:'Manrope',sans-serif; }
 .launchpad-shell * { box-sizing:border-box; }
 .lp-rail { position:sticky; top:0; height:100vh; border-right:1px solid var(--line); padding:30px 26px; display:flex; flex-direction:column; background:#e8e5db; }
 .lp-mark { color:var(--ink); text-decoration:none; font:700 24px/1 'Manrope'; letter-spacing:-2px; }.lp-mark span{color:#ff5c35;font-size:13px;margin-left:2px}
